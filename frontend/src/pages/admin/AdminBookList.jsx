@@ -19,8 +19,8 @@ export default function AdminBookList() {
             const response = await axios.get('/api/book');
             setBooks(response.data);
         } catch (error) {
-            console.error("Lỗi tải sách:", error);
-            toast.error("Không thể tải danh sách sách.");
+            console.error("Lỗi tải đồ chơi:", error);
+            toast.error("Không thể tải danh sách đồ chơi.");
         } finally {
             setLoading(false);
         }
@@ -32,7 +32,7 @@ export default function AdminBookList() {
 
     // Hàm xóa sách (Chỉ Admin mới gọi được)
     const handleDelete = async (bookId) => {
-        if (!window.confirm("Bạn có chắc chắn muốn xóa cuốn sách này không?")) return;
+        if (!window.confirm("Bạn có chắc chắn muốn xóa đồ chơi này không?")) return;
         
         const config = {
             headers: { 'Authorization': `Bearer ${token}` }
@@ -40,22 +40,22 @@ export default function AdminBookList() {
 
         try {
             await axios.delete(`/api/book/${bookId}`, config);
-            toast.success("Xóa sách thành công!");
+            toast.success("Xóa đồ chơi thành công!");
             fetchBooks(); // Tải lại danh sách
         } catch (error) {
-            console.error("Lỗi xóa sách:", error);
-            toast.error(error.response?.data?.message || "Lỗi: Bạn không có quyền xóa sách.");
+            console.error("Lỗi xóa đồ chơi:", error);
+            toast.error(error.response?.data?.message || "Lỗi: Bạn không có quyền xóa đồ chơi.");
         }
     };
 
     if (loading) {
-        return <div className="text-center p-10">Đang tải danh sách sách...</div>;
+        return <div className="text-center p-10">Đang tải danh sách đồ chơi...</div>;
     }
 
     return (
         <div>
             <div className="flex justify-between items-center mb-6">
-                <h1 className="text-3xl font-bold">Quản Lý Sách</h1>
+                <h1 className="text-3xl font-bold">Quản Lý Đồ Chơi</h1>
                 
                 {/* Nút Thêm mới (Giả định link đến trang thêm sách) */}
                 <Link 
@@ -63,7 +63,7 @@ export default function AdminBookList() {
                     className="flex items-center space-x-2 bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition"
                 >
                     <PlusCircle className="w-5 h-5" />
-                    <span>Thêm Sách Mới</span>
+                    <span>Thêm Đồ chơi Mới</span>
                 </Link>
             </div>
             
@@ -72,8 +72,8 @@ export default function AdminBookList() {
                     <thead className="bg-gray-50">
                         <tr>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Ảnh</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tên sách</th>
-                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tác giả</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tên Đồ Chơi</th>
+                            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Phân Loại </th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giá bán</th>
                             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Đã bán</th>
                             <th className="px-6 py-3">Thao tác</th>

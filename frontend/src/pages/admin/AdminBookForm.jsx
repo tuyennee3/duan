@@ -43,7 +43,7 @@ export default function AdminBookForm() {
                     coverUrl: bookData.coverUrl || '',
                 });
             } catch (error) {
-                toast.error("Lỗi tải dữ liệu sách cũ.");
+                toast.error("Lỗi tải dữ liệu đồ chơi  cũ.");
                 console.error(error);
             } finally {
                 setInitialLoading(false);
@@ -80,13 +80,13 @@ export default function AdminBookForm() {
             await axios[method](url, formData, config);
             
             toast.success(isEditMode 
-                ? "Cập nhật sách thành công!" 
-                : "Thêm sách mới thành công!");
+                ? "Cập nhật đồ chơi thành công!" 
+                : "Thêm đồ chơi mới thành công!");
             
             navigate('/admin/books'); // Quay về trang danh sách
         } catch (error) {
-            console.error("Lỗi khi lưu sách:", error);
-            toast.error(error.response?.data?.message || `Lỗi: ${isEditMode ? 'Cập nhật' : 'Thêm mới'} sách thất bại.`);
+            console.error("Lỗi khi lưu đồ chơi:", error);
+            toast.error(error.response?.data?.message || `Lỗi: ${isEditMode ? 'Cập nhật' : 'Thêm mới'} đồ chơi thất bại.`);
         } finally {
             setLoading(false);
         }
@@ -95,27 +95,27 @@ export default function AdminBookForm() {
     // --- Render ---
 
     if (initialLoading) {
-        return <div className="text-center p-10">Đang tải dữ liệu sách...</div>;
+        return <div className="text-center p-10">Đang tải dữ liệu đồ chơi...</div>;
     }
 
     return (
         <div className="max-w-3xl mx-auto">
             <h1 className="text-3xl font-bold mb-6">
-                {isEditMode ? 'Sửa Thông Tin Sách' : 'Thêm Sách Mới'}
+                {isEditMode ? 'Sửa Thông Tin đồ chơi' : 'Thêm đồ chơi Mới'}
             </h1>
 
             <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md space-y-4">
                 
                 {/* Tên sách */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700">Tên sách</label>
+                    <label className="block text-sm font-medium text-gray-700">Tên đồ chơi</label>
                     <input type="text" name="name" value={formData.name} onChange={handleChange} required
                         className="mt-1 w-full p-2 border rounded-md" />
                 </div>
                 
                 {/* Tác giả */}
                 <div>
-                    <label className="block text-sm font-medium text-gray-700">Tác giả</label>
+                    <label className="block text-sm font-medium text-gray-700">Phân Loại</label>
                     <input type="text" name="author" value={formData.author} onChange={handleChange} required
                         className="mt-1 w-full p-2 border rounded-md" />
                 </div>

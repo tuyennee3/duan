@@ -78,7 +78,7 @@ export default function AdminDashboard() {
                     colorClass="bg-blue-500"
                 />
                 <StatCard 
-                    title="Sách đã bán" 
+                    title="Đồ Chơi đã bán" 
                     value={stats.totalSoldQuantity.toLocaleString('vi-VN')} 
                     icon={BookOpen} 
                     colorClass="bg-red-500"

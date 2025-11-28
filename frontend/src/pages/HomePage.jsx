@@ -15,7 +15,7 @@ const HomePage = () => {
       <CategoryList />
 
       <div className="mt-8">
-        <h2 className="text-2xl font-bold mb-4">Sản Phẩm Nổi Bật</h2>
+        <h2 className="text-2xl font-bold mb-4">Dồ Chơi Nổi Bật</h2>
         <ProductList /> 
       </div>
     </main>

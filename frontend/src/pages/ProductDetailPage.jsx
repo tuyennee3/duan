@@ -63,7 +63,7 @@ export default function ProductDetailPage() {
     return <div className="container mx-auto p-8 text-center">Đang tải...</div>;
   }
   if (!book) {
-    return <div className="container mx-auto p-8 text-center">Không tìm thấy sách.</div>;
+    return <div className="container mx-auto p-8 text-center">Không tìm thấy đồ chơi.</div>;
   }
 
   return (
@@ -84,7 +84,7 @@ export default function ProductDetailPage() {
           {/* CỘT PHẢI: THÔNG TIN VÀ NÚT BẤM */}
           <div className="p-6 md:p-8 flex flex-col">
             <h1 className="text-3xl md:text-4xl font-bold mb-2">{book.name}</h1>
-            <p className="text-lg text-gray-600 mb-4">Tác giả: {book.author}</p>
+            <p className="text-lg text-gray-600 mb-4">Mặt Hàng: {book.author}</p>
             
             {/* Giá */}
             <div className="bg-gray-50 p-4 rounded-lg mb-6">

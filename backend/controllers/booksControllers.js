@@ -46,12 +46,12 @@ class BooksController {
                                    .populate('categories', 'name'); // Lấy luôn tên thể loại
 
             if (!book) {
-                return res.status(404).json({ message: "Không tìm thấy sách" });
+                return res.status(404).json({ message: "Không tìm thấy đồ chơi" });
             }
 
             res.json(book);
         } catch (error) {
-            res.status(500).json({ message: "Lỗi xem chi tiết sách", error: error.message });
+            res.status(500).json({ message: "Lỗi xem chi tiết đồ chơi", error: error.message });
         }
     }
 
@@ -60,17 +60,17 @@ class BooksController {
         try {
             console.log('📥 Dữ liệu nhận được:', req.body);
             const newBook = await Book.create(req.body);
-            console.log('✅ Tạo sách thành công:', newBook);
+            console.log('✅ Tạo đồ chơi thành công:', newBook);
             res.status(201).json({
                 success: true,
-                message: "Thêm sách thành công",
+                message: "Thêm đồ chơi thành công",
                 data: newBook
             });
         } catch (error) {
-            console.error('❌ Lỗi khi thêm sách:', error);
+            console.error('❌ Lỗi khi thêm đồ chơi:', error);
             res.status(400).json({ 
                 success: false,
-                message: "Lỗi thêm sách mới", 
+                message: "Lỗi thêm đồ chơi mới", 
                 error: error.message,
                 details: error.errors || error
             });
@@ -81,10 +81,10 @@ class BooksController {
     async update(req, res) {
         try {
             const book = await Book.findByIdAndUpdate(req.params.id, req.body, { new: true });
-            if (!book) return res.status(404).json({ message: "Không tìm thấy sách" });
+            if (!book) return res.status(404).json({ message: "Không tìm thấy đồ chơi" });
             res.json(book);
         } catch (error) {
-            res.status(400).json({ message: "Lỗi cập nhật sách", error });
+            res.status(400).json({ message: "Lỗi cập nhật đồ chơi", error });
         }
     }
 
@@ -92,10 +92,10 @@ class BooksController {
     async delete(req, res) {
         try {
             const book = await Book.findByIdAndDelete(req.params.id);
-            if (!book) return res.status(404).json({ message: "Không tìm thấy sách" });
+            if (!book) return res.status(404).json({ message: "Không tìm thấy đồ chơi" });
             res.status(204).send(); // Không trả dữ liệu
         } catch (error) {
-            res.status(500).json({ message: "Lỗi xoá sách", error });
+            res.status(500).json({ message: "Lỗi xoá đồ chơi", error });
         }
     }
 
@@ -128,7 +128,7 @@ class BooksController {
             });
     
         } catch (error) {
-            res.status(500).json({ message: 'Lỗi server khi lấy sách theo thể loại', error: error.message });
+            res.status(500).json({ message: 'Lỗi server khi lấy đồ chơi theo thể loại', error: error.message });
         }
     }
 

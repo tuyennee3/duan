@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 
 const bookSchema = new mongoose.Schema({
-  name : { type: String, required: [true, 'Tên sách là bắt buộc'] },
-  author: { type: String, required: [true, 'Tên tác giả là bắt buộc'] },
+  name : { type: String, required: [true, 'Tên đồ chơi là bắt buộc'] },
+  author: { type: String, required: [true, 'Phân loại đồ chơi là bắt buộc'] },
   price: { 
     type: Number, 
     required: [true, 'Giá bán là bắt buộc'], 

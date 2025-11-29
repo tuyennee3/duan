@@ -11,9 +11,9 @@ const AdminSidebar = ({ user, combinedLogout }) => {
     
     // Menu Admin (giả định)
     const navItems = [
-        { name: 'Dashboard', icon: LayoutDashboard, path: '/admin/dashboard' },
-        { name: 'Quản lý Đơn hàng', icon: ShoppingCart, path: '/admin/orders' },
-        { name: 'Quản lý Sách', icon: Book, path: '/admin/books' },
+        { name: 'Trung tâm admin', icon: LayoutDashboard, path: '/admin/dashboard' },
+        { name: ' Đơn hàng của tôi', icon: ShoppingCart, path: '/admin/orders' },
+        { name: 'Quản lý đồ chơi', icon: Book, path: '/admin/books' },
         { name: 'Quản lý Người dùng', icon: Users, path: '/admin/users' },
     ];
 

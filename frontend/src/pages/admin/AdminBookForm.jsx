@@ -157,7 +157,7 @@ export default function AdminBookForm() {
                     disabled={loading}
                     className="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700 transition disabled:opacity-50"
                 >
-                    {loading ? 'Đang xử lý...' : (isEditMode ? 'Cập Nhật Sách' : 'Thêm Sách')}
+                    {loading ? 'Đang xử lý...' : (isEditMode ? 'Cập Nhật đồ chơi' : 'Thêm đồ chơi')}
                 </button>
             </form>
         </div>

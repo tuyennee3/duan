@@ -21,7 +21,7 @@ const HeaderBar = () => {
           {/* (Nút 9 ô vuông CategorySelector ở đây) */}
           <Link to="/" className="text-xl font-bold text-indigo-600">
            <img
-            src="logo3anhem.png" // <-- Thay bằng tên file của bạn (ví dụ: /logo.svg)
+            src="https://i.pinimg.com/736x/79/86/2b/79862b3ad5e59fbafb92170dd01f04ff.jpg" // <-- Thay bằng tên file của bạn (ví dụ: /logo.svg)
             alt="Logo Trang chủ"
             className="h-16 w-auto" // <-- Thêm class để chỉnh kích thước logo
           /> 
